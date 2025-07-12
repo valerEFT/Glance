@@ -1,6 +1,17 @@
-import { Input } from "@/shared/ui";
-import { cn } from "@/shared/utils";
+import { Input, Logo } from "@/shared/ui";
+import { geistMono, geistSans } from "@/shared/fonts";
 
-export const Header = () => {
-  return <Input type="text" placeholder="Поиск..." className={cn("")} />;
+export const Header: React.FC = () => {
+  return (
+    <div>
+      <Logo
+        className={`${geistMono.variable} text-[var(--color-violet)] text-[28px]`}
+      />
+      <Input
+        type="text"
+        placeholder="Поиск..."
+        className={"bg-var(--color-gray)"}
+      />
+    </div>
+  );
 };
