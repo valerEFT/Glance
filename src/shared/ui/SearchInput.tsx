@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { SearchInputProps } from "@/shared/model/types";
+import { classNameProps } from "@/shared/model/types";
 
-export const SearchInput: FC<SearchInputProps> = ({ className }) => {
+export const SearchInput: FC<classNameProps> = ({ className }) => {
   return (
     <div>
       <input type="text" className={className} />

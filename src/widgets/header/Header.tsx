@@ -1,9 +1,9 @@
 import { Input, Logo } from "@/shared/ui";
-import { geistMono, geistSans } from "@/shared/fonts";
+import { geistMono } from "@/shared/fonts";
 
 export const Header: React.FC = () => {
   return (
-    <div>
+    <header className="flex justify-between w-full">
       <Logo
         className={`${geistMono.variable} text-[var(--color-violet)] text-[28px]`}
       />
@@ -12,6 +12,6 @@ export const Header: React.FC = () => {
         placeholder="Поиск..."
         className={"bg-var(--color-gray)"}
       />
-    </div>
+    </header>
   );
 };

@@ -10,4 +10,6 @@ export type InputProps = {
   className: string;
 };
 
-export type SearchInputProps = Pick<InputProps, "className">;
+export type classNameProps = {
+  className: string;
+};
