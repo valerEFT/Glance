@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { geistMono, geistSans } from "@/shared/fonts";
-import "@/app/globals.css";
+import "@/app/scss/styles.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
