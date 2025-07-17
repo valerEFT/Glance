@@ -1,0 +1,15 @@
+@use "@/app/scss/variables" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input {
+  background-color: $color-gray;
+}
+
+.logo {
+  color: $color-violet;
+}
