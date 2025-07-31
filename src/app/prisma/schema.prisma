@@ -1,0 +1,62 @@
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String
+  password String
+  cart Cart?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model productItem {
+  id    Int     @id @default(autoincrement())
+  image String
+  title String
+  price Int
+  smartphoneSpecification SmartphoneSpecification?
+}
+
+model SmartphoneSpecification {
+  id    Int     @id @default(autoincrement())
+  screenSize String
+  numberOfcores Int
+  powerSupplyPower Int
+  processor String
+  ram Int
+  rom Int
+  mainCamera String
+  frontCamera String
+
+  smartphone productItem @relation(fields: [smartphoneId], references: [id])
+  smartphoneId Int @unique
+}
+
+model Cart {
+  id    Int     @id @default(autoincrement())
+
+  user User @relation(fields: [userId], references: [id])
+  userId Int @unique
+
+  cartItem CartItem[]
+} 
+
+model CartItem {
+  id    Int     @id @default(autoincrement())
+  image String
+  title String
+  price String
+  quantity Int
+
+  cart Cart @relation(fields: [cartId], references: [id])
+  cartId Int @unique
+}
