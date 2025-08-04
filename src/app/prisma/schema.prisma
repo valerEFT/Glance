@@ -44,8 +44,8 @@ model SmartphoneSpecification {
 model Cart {
   id    Int     @id @default(autoincrement())
 
-  user User @relation(fields: [userId], references: [id])
-  userId Int @unique
+  user User? @relation(fields: [userId], references: [id])
+  userId Int? @unique
 
   cartItem CartItem[]
 } 
@@ -57,6 +57,6 @@ model CartItem {
   price String
   quantity Int
 
-  cart Cart @relation(fields: [cartId], references: [id])
-  cartId Int @unique
+  cart Cart? @relation(fields: [cartId], references: [id])
+  cartId Int? @unique
 }

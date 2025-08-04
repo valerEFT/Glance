@@ -10,10 +10,12 @@
     "prisma:dev-generate": "dotenv -e .env -- npx prisma generate --schema ./src/app/prisma/schema.prisma",
     "prisma:prod-generate": "dotenv -e .env.production -- npx prisma generate --schema ./src/app/prisma/schema.prisma",
     "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev --schema ./src/app/prisma/schema.prisma",
+    "prisma:migrate-deploy": "dotenv -e .env.production -- npx prisma studio --schema=./src/app/prisma/schema.prisma",
     "prisma:dev-studio": "dotenv -e .env -- npx prisma studio --schema ./src/app/prisma/schema.prisma",
     "prisma:prod-studio": "dotenv -e .env.production -- npx prisma studio --schema ./src/app/prisma/schema.prisma",
     "prisma:dev-seed": "dotenv -e .env -- npx prisma db seed --schema ./src/app/prisma/schema.prisma",
-    "prisma:prod-seed": "dotenv -e .env.production -- npx prisma db seed --schema ./src/app/prisma/schema.prisma"
+    "prisma:prod-seed": "dotenv -e .env.production -- npx prisma db seed --schema ./src/app/prisma/schema.prisma",
+    "prisma:push": "npx prisma db push --schema ./src/app/prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^6.12.0",
