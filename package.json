@@ -7,10 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev --schema ./src/app/prisma/schema.prisma --name",
-    "prisma:studio": "prisma studio --schema ./src/app/prisma/schema.prisma",
-    "prisma:seed": "prisma db seed"
+    "prisma:dev-generate": "dotenv -e .env -- npx prisma generate --schema ./src/app/prisma/schema.prisma",
+    "prisma:prod-generate": "dotenv -e .env.production -- npx prisma generate --schema ./src/app/prisma/schema.prisma",
+    "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev --schema ./src/app/prisma/schema.prisma",
+    "prisma:dev-studio": "dotenv -e .env -- npx prisma studio --schema ./src/app/prisma/schema.prisma",
+    "prisma:prod-studio": "dotenv -e .env.production -- npx prisma studio --schema ./src/app/prisma/schema.prisma",
+    "prisma:dev-seed": "dotenv -e .env -- npx prisma db seed --schema ./src/app/prisma/schema.prisma",
+    "prisma:prod-seed": "dotenv -e .env.production -- npx prisma db seed --schema ./src/app/prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^6.12.0",
@@ -24,6 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
+    "dotenv-cli": "^10.0.0",
     "postcss": "^8.5.6",
     "prisma": "^6.12.0",
     "sass": "^1.89.2",
