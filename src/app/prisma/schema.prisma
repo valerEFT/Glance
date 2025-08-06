@@ -15,6 +15,8 @@ model User {
   cart Cart?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("user")
 }
 
 
@@ -24,6 +26,8 @@ model productItem {
   title String
   price Int
   smartphoneSpecification SmartphoneSpecification?
+
+  @@map("product_item")
 }
 
 model SmartphoneSpecification {
@@ -39,6 +43,8 @@ model SmartphoneSpecification {
 
   smartphone productItem @relation(fields: [smartphoneId], references: [id])
   smartphoneId Int @unique
+
+  @@map("smartphone_specification")
 }
 
 model Cart {
@@ -48,6 +54,8 @@ model Cart {
   userId Int? @unique
 
   cartItem CartItem[]
+
+  @@map("cart")
 } 
 
 model CartItem {
@@ -59,4 +67,6 @@ model CartItem {
 
   cart Cart? @relation(fields: [cartId], references: [id])
   cartId Int? @unique
+
+  @@map("cart_item")
 }
