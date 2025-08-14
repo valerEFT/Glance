@@ -1,7 +1,7 @@
 import { Logo } from "@/shared/ui/logo";
 import { Input } from "@/shared/ui/input";
 import { geistMono } from "@/shared/fonts";
-import headerStyles from "@/widgets/Header/Header.module.scss";
+import headerStyles from "@/widgets/header/Header.module.scss";
 
 export const Header: React.FC = () => {
   return (
