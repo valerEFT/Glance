@@ -1,5 +1,6 @@
 import { prisma } from "@/app/prisma/prismaClient";
 import type { CategoryParamsProps } from "@/features/create-product/model/types";
+import type { ProductItem } from "@prisma/client";
 import Link from "next/link";
 
 export default async function CategoryPage({ params }: CategoryParamsProps) {
@@ -12,7 +13,7 @@ export default async function CategoryPage({ params }: CategoryParamsProps) {
     return <div>Категория не найдена</div>;
   }
 
-  const products = await prisma.productItem.findMany({
+  const products: ProductItem[] = await prisma.productItem.findMany({
     where: { categoryId: currentCategory.id },
   });
 
