@@ -1,9 +1,23 @@
-import { prisma } from "./prisma-client";
+import { categories } from "./constants";
+import { prisma } from "./prismaClient";
 
-async function up() {}
+async function up() {
+  for (let category of categories) {
+    await prisma.category.create({
+      data: {
+        title: category.title,
+        image: category.image,
+        slug: category.slug,
+      },
+    });
+  }
+}
 
 async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "user" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "category" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "product_item" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "smartphone_specification" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {

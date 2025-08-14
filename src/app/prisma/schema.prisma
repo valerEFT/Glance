@@ -19,12 +19,27 @@ model User {
   @@map("user")
 }
 
+model Category {
+  id Int @id @default(autoincrement())
+  title String
+  slug String @unique
+  image String
 
-model productItem {
+  productItems ProductItem[]
+
+   @@map("category")
+
+}
+
+
+model ProductItem {
   id    Int     @id @default(autoincrement())
   image String
   title String
   price Int
+
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId Int 
   smartphoneSpecification SmartphoneSpecification?
 
   @@map("product_item")
@@ -32,16 +47,17 @@ model productItem {
 
 model SmartphoneSpecification {
   id    Int     @id @default(autoincrement())
+  OS String
+  model Int
   screenSize String
   numberOfcores Int
   powerSupplyPower Int
   processor String
-  ram Int
-  rom Int
-  mainCamera String
-  frontCamera String
+  RAM Int
+  ROM Int
+  weight Int
 
-  smartphone productItem @relation(fields: [smartphoneId], references: [id])
+  smartphone ProductItem @relation(fields: [smartphoneId], references: [id])
   smartphoneId Int @unique
 
   @@map("smartphone_specification")
