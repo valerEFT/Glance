@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { geistMono, geistSans } from "@/shared/fonts";
 import "@/app/scss/styles.scss";
+import { Container } from "@/shared/ui/container";
+import { Header } from "@/widgets/header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,10 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-center justify-center`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Container>
+          <Header />
+          {children}
+        </Container>
       </body>
     </html>
   );

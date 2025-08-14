@@ -10,6 +10,6 @@ export type InputProps = {
   className: string;
 };
 
-export type classNameProps = {
-  className: string;
+export type ClassNameProps = {
+  className?: string;
 };

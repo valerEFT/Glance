@@ -1,11 +1,22 @@
-import { Container } from "@/shared/ui/Container";
-import { Header } from "@/widgets/Header";
-import containerStyles from "@/shared/ui/Container/Container.module.scss";
+import { prisma } from "@/app/prisma/prismaClient";
+import Link from "next/link";
 
-export default function Home() {
+export const categoriesDB = await prisma.category.findMany();
+
+export default async function Home() {
   return (
-    <Container className={containerStyles.container}>
-      <Header />
-    </Container>
+    <>
+      <h1>Каталог</h1>
+      <ul>
+        {categoriesDB.map((item) => (
+          <li key={item.title}>
+            <Link href={item.slug}>
+              <img src={item.image} />
+              {item.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }

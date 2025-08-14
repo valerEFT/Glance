@@ -15,12 +15,12 @@
     "prisma:prod-studio": "dotenv -e .env.production -- npx prisma studio --schema ./src/app/prisma/schema.prisma",
     "prisma:dev-seed": "ts-node --project tsconfig.prisma.json src/app/prisma/seed.ts",
     "prisma:prod-seed": "dotenv -e .env.production -- npx prisma db seed --schema ./src/app/prisma/schema.prisma",
-    "prisma:push": "npx prisma db push --schema ./src/app/prisma/schema.prisma"
+    "prisma:push": "npx prisma db push --schema ./src/app/prisma/schema.prisma --force-reset"
   },
   "dependencies": {
     "@prisma/client": "^6.12.0",
     "clsx": "^2.1.1",
-    "next": "15.3.5",
+    "next": "^15.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

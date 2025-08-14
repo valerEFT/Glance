@@ -1,9 +1,11 @@
 import React, { FC, PropsWithChildren } from "react";
-import { classNameProps } from "@/shared/model/types";
+import { ClassNameProps } from "@/shared/model/types";
+import clsx from "clsx";
+import styled from "./Container.module.scss";
 
-export const Container: FC<PropsWithChildren<classNameProps>> = ({
+export const Container: FC<PropsWithChildren<ClassNameProps>> = ({
   children,
   className,
 }) => {
-  return <div className={className}>{children}</div>;
+  return <div className={clsx(styled.container, className)}>{children}</div>;
 };

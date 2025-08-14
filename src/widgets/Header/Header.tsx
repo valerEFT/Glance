@@ -1,5 +1,5 @@
-import { Logo } from "@/shared/ui/Logo";
-import { Input } from "@/shared/ui/Input";
+import { Logo } from "@/shared/ui/logo";
+import { Input } from "@/shared/ui/input";
 import { geistMono } from "@/shared/fonts";
 import headerStyles from "@/widgets/Header/Header.module.scss";
 
