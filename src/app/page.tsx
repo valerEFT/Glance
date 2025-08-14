@@ -1,7 +1,5 @@
-import { prisma } from "@/app/prisma/prismaClient";
+import { categoriesDB } from "@/entities/category/model/categoriesDB";
 import Link from "next/link";
-
-export const categoriesDB = await prisma.category.findMany();
 
 export default async function Home() {
   return (

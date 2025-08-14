@@ -1,5 +1,5 @@
 import { prisma } from "@/app/prisma/prismaClient";
-import { CategoryParamsProps } from "@/features/create-product/model/types";
+import type { CategoryParamsProps } from "@/features/create-product/model/types";
 import Link from "next/link";
 
 export default async function CategoryPage({ params }: CategoryParamsProps) {

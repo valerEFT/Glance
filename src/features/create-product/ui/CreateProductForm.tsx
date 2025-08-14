@@ -1,4 +1,4 @@
-import { categoriesDB } from "@/app/page";
+import { categoriesDB } from "@/entities/category/model/categoriesDB";
 import { createProductServer } from "@/features/create-product/model/createProduct.server";
 import { generateForm } from "./GenerateForm";
 
