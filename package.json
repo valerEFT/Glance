@@ -8,15 +8,18 @@
     "start": "next start",
     "lint": "next lint",
     "build:dev": "dotenv -e .env next build",
-    "prisma:dev-generate": "dotenv -e .env -- npx prisma generate --schema ./src/app/prisma/schema.prisma",
-    "prisma:prod-generate": "dotenv -e .env.production -- npx prisma generate --schema ./src/app/prisma/schema.prisma",
-    "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev --schema ./src/app/prisma/schema.prisma",
-    "prisma:migrate-deploy": "dotenv -e .env.production -- npx prisma studio --schema=./src/app/prisma/schema.prisma",
-    "prisma:dev-studio": "dotenv -e .env -- npx prisma studio --schema ./src/app/prisma/schema.prisma",
-    "prisma:prod-studio": "dotenv -e .env.production -- npx prisma studio --schema ./src/app/prisma/schema.prisma",
+    "prisma:dev-generate": "dotenv -e .env -- npx prisma generate",
+    "prisma:prod-generate": "dotenv -e .env.production -- npx prisma generate",
+    "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
+    "prisma:migrate-deploy": "dotenv -e .env.production -- npx prisma studio",
+    "prisma:dev-studio": "dotenv -e .env -- npx prisma studio",
+    "prisma:prod-studio": "dotenv -e .env.production -- npx prisma studio",
     "prisma:dev-seed": "ts-node --project tsconfig.prisma.json src/app/prisma/seed.ts",
-    "prisma:prod-seed": "dotenv -e .env.production -- npx prisma db seed --schema ./src/app/prisma/schema.prisma",
-    "prisma:push": "npx prisma db push --schema ./src/app/prisma/schema.prisma --force-reset"
+    "prisma:prod-seed": "dotenv -e .env.production -- npx prisma db seed",
+    "prisma:push": "npx prisma db push --force-reset"
+  },
+  "prisma": {
+    "schema": "src/app/prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^6.12.0",
