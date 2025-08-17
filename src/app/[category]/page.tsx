@@ -17,8 +17,8 @@ export default async function CategoryPage({ params }: CategoryParamsProps) {
     where: { categoryId: currentCategory.id },
   });
 
-  if (!products) {
-    return <div>В категории "{currentCategory.title}" пока нету товаров</div>;
+  if (!products.length) {
+    return <h2>В категории "{currentCategory.title}" пока нету товаров</h2>;
   }
 
   return (
